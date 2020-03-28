@@ -19,6 +19,7 @@ class WineController extends Controller
     {
         $get_feeds = Wine::get_feed();
         $feeds = json_decode($get_feeds->getContent());
+        dd($feeds);
         if (count($feeds) != 0) {
             DB::select('TRUNCATE WINES');
             foreach ($feeds as $key => $feed) {
